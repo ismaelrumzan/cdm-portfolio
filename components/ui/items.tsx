@@ -15,7 +15,6 @@ const formatDate = (dateString: string): string => {
 };
 
 export function Portfolio({ items }: { items: Records<FieldSet> }) {
-  console.log(items);
   return (
     items.length > 0 && (
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
