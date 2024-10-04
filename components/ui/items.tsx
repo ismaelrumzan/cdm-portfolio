@@ -17,7 +17,7 @@ const formatDate = (dateString: string): string => {
 export function Portfolio({ items }: { items: Records<FieldSet> }) {
   return (
     items.length > 0 && (
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {items.map((item, i) => {
           const tags = item.fields.Tags as readonly string[];
           return (
