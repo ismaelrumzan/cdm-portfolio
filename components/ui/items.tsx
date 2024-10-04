@@ -1,4 +1,5 @@
 import { Label } from "@/components/ui/label";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { FieldSet, Records } from "airtable";
@@ -57,6 +58,11 @@ export function Portfolio({ items }: { items: Records<FieldSet> }) {
                       </Badge>
                     ))}
                   </div>
+                ) : null}
+                {item.fields.Client !== "Hidden" ? (
+                  <Alert className="mt-3 text-sm p-2">
+                    Client: {item.fields.Client as string}
+                  </Alert>
                 ) : null}
               </div>
             </div>
