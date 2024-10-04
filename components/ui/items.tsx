@@ -20,7 +20,6 @@ export function Portfolio({ items }: { items: Records<FieldSet> }) {
     items.length > 0 && (
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
         {items.map((item, i) => {
-          const image = item.fields.Image as readonly { url: string }[];
           const tags = item.fields.Tags as readonly string[];
           return (
             <div
@@ -30,9 +29,9 @@ export function Portfolio({ items }: { items: Records<FieldSet> }) {
                 alt={item.fields.Title as string}
                 className="h-[250px] sm:h-[400px] w-full object-cover"
                 height={300}
-                src={image[0].url}
+                src={item.fields.Image as string}
                 style={{
-                  aspectRatio: "400/300",
+                  aspectRatio: "400/400",
                   objectFit: "cover",
                 }}
                 width={400}
@@ -43,12 +42,16 @@ export function Portfolio({ items }: { items: Records<FieldSet> }) {
                 </h3>
                 <Label className="text-gray-500">{`From ${formatDate(
                   item.fields.Start as string
-                )} to ${formatDate(item.fields.End as string)}`}</Label>
+                )} to ${
+                  item.fields.End
+                    ? formatDate(item.fields.End as string)
+                    : `current`
+                }`}</Label>
                 <div className="prose max-w-none dark:text-white">
                   <MDXRemote source={item.fields.Description as string} />
                 </div>
                 {tags.length > 0 ? (
-                  <div className="grid-flow-row mt-2">
+                  <div className="grid-flow-row mt-3">
                     {tags.map((tag) => (
                       <Badge key={tag} variant="secondary" className="mr-2">
                         {tag}

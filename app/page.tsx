@@ -39,21 +39,12 @@ export default async function Home() {
             <span className="text-slate-300">instructional design methods</span>
           </h2>
           <p className="text-xl">We have been in existence since 2002</p>
-          <div className="grid grid-cols-2 mt-10 gap-10">
-            <div className="flex justify-end">
-              <Link href="/classes">
-                <Button size="lg" className="w-fit">
-                  Our Projects
-                </Button>
-              </Link>
-            </div>
-            <div className="flex justify-start">
-              <Link href="/location">
-                <Button size="lg" className="w-fit" variant="secondary">
-                  Contact
-                </Button>
-              </Link>
-            </div>
+          <div className="flex justify-center mt-4">
+            <Link href="mailto:ismael@cordobadigitalmedia.com" target="_blank">
+              <Button size="lg" className="w-fit" variant="secondary">
+                Get in touch
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

@@ -44,15 +44,10 @@ export function MobileMenu() {
               </Button>
             </DrawerClose>
           </Link>
-          <Link href="/projects" className="w-full">
-            <DrawerClose className="w-full">
-              <Button className="w-full" variant="secondary">
-                <List className="mr-2 h-4 w-4" />
-                Projects
-              </Button>
-            </DrawerClose>
-          </Link>
-          <Link href="/contact" className="w-full">
+          <Link
+            href="mailto:ismael@cordobadigitalmedia.com"
+            className="w-full"
+            target="_blank">
             <DrawerClose className="w-full">
               <Button className="w-full" variant="secondary">
                 <Mail className="mr-2 h-4 w-4" />

@@ -18,10 +18,7 @@ export function Header() {
             </Link>
           </div>
           <nav className="hidden md:flex md:grow justify-end items-center">
-            <Link href="/projects">
-              <Button variant="link">Projects</Button>
-            </Link>
-            <Link href="/contact">
+            <Link href="mailto:ismael@cordobadigitalmedia.com" target="_blank">
               <Button variant="link">Contact</Button>
             </Link>
           </nav>

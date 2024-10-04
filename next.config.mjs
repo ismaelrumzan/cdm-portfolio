@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: "v5.airtableusercontent.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "*.blob.vercel-storage.com",
+        port: "",
+      },
     ],
   },
 };

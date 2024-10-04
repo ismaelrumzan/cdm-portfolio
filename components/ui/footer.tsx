@@ -19,7 +19,9 @@ export function Footer() {
                 Contact Us
               </h2>
               <div className="flex gap-2">
-                <Link href="/contact">
+                <Link
+                  href="mailto:ismael@cordobadigitalmedia.com"
+                  target="_blank">
                   <Button
                     variant="outline"
                     size="icon"
