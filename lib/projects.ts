@@ -26,13 +26,13 @@ export const projects: Project[] = [
     start: "2024-06-01",
     end: "2024-08-01",
     client: "Hidden",
-    tags: ["Next.js", "Website", "Airtable"],
+    tags: ["Next.js", "Website"],
   },
   {
     id: "online-learning-system",
     title: "Online Learning System",
     description:
-      "Custom learning management system synched from content created in Notion with the following features\n- Assignments\n- Journal\n- Rich media content\n- Quizzes",
+      "Custom learning management system synced with Notion and payloadCMS with the following features:\n- Assignments\n- Journal\n- Rich media content\n- Quizzes",
     image: "/portfolio/cards/online-learning-system.png",
     gallery: [
       "/portfolio/gallery/online-learning-system-0.png",

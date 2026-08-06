@@ -19,12 +19,12 @@ const figtree = Figtree({
 const siteUrl = "https://www.cordobadigitalmedia.com";
 const siteName = "Cordoba Digital Media";
 const siteDescription =
-  "Educational technology and instructional design studio. Effective, culturally sensitive solutions for education and training since 2002.";
+  "Technical writing and educational technology. Developer documentation, custom LMS platforms, and instructional design since 2002.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} | Educational Technology & Instructional Design`,
+    default: `${siteName} | Technical Writing & Educational Technology`,
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
@@ -33,12 +33,13 @@ export const metadata: Metadata = {
   creator: siteName,
   publisher: siteName,
   keywords: [
+    "technical writing",
+    "developer documentation",
     "educational technology",
     "instructional design",
     "e-learning",
     "LMS",
     "custom learning platforms",
-    "technical writing",
     "Cordoba Digital Media",
     "Edmonton",
   ],
@@ -51,20 +52,20 @@ export const metadata: Metadata = {
     locale: "en_CA",
     url: siteUrl,
     siteName,
-    title: `${siteName} | Educational Technology & Instructional Design`,
+    title: `${siteName} | Technical Writing & Educational Technology`,
     description: siteDescription,
     images: [
       {
         url: "/img-yoSgrYhV0LdUeSWpKn4Gx.jpeg",
         width: 1280,
         height: 720,
-        alt: "Cordoba Digital Media — educational technology studio",
+        alt: "Cordoba Digital Media — technical writing and educational technology",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteName} | Educational Technology & Instructional Design`,
+    title: `${siteName} | Technical Writing & Educational Technology`,
     description: siteDescription,
     images: ["/img-yoSgrYhV0LdUeSWpKn4Gx.jpeg"],
   },
