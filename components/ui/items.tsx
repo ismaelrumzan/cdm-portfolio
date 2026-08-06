@@ -1,7 +1,6 @@
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import type { Project } from "@/lib/projects";
 import { projects } from "@/lib/projects";
 import { ProjectImage } from "@/components/ui/project-image";
@@ -16,6 +15,24 @@ const formatDate = (dateString: string): string => {
   };
   return date.toLocaleDateString("en-US", options);
 };
+
+function ProjectDescription({ text }: { text: string }) {
+  const lines = text.split("\n").filter(Boolean);
+  const [intro, ...bullets] = lines;
+
+  return (
+    <>
+      {intro ? <p>{intro}</p> : null}
+      {bullets.length > 0 ? (
+        <ul>
+          {bullets.map((line) => (
+            <li key={line}>{line.replace(/^-\s*/, "")}</li>
+          ))}
+        </ul>
+      ) : null}
+    </>
+  );
+}
 
 export function Portfolio({ items = projects }: { items?: Project[] }) {
   if (items.length === 0) return null;
@@ -43,7 +60,7 @@ export function Portfolio({ items = projects }: { items?: Project[] }) {
               }`}
             </Label>
             <div className="prose max-w-none prose-p:text-foreground/80 prose-headings:font-display prose-headings:text-olive">
-              <MDXRemote source={item.description} />
+              <ProjectDescription text={item.description} />
             </div>
             {item.tags.length > 0 ? (
               <div className="flex flex-wrap gap-2 pt-1">
