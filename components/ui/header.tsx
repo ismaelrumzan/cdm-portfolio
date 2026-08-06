@@ -2,31 +2,52 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { MobileMenu } from "./mobile-menu";
+
+const navLinks = [
+  { href: "/#projects", label: "Projects" },
+  { href: "/writing", label: "Writing" },
+  { href: "mailto:ismael@cordobadigitalmedia.com", label: "Contact", external: true },
+];
+
 export function Header() {
   return (
-    <section className="py-2 bg-white dark:bg-[#0D0E10] sticky top-0 z-10">
-      <div className="container mx-auto px-4">
-        <div className="flex gap-4">
-          <div>
-            <Link href="/" className="w-fit">
-              <Image
-                src="/lawh-logo.png"
-                height={10}
-                width={50}
-                alt="Cordoba Digital Media"
-              />
-            </Link>
-          </div>
-          <nav className="hidden md:flex md:grow justify-end items-center">
-            <Link href="mailto:ismael@cordobadigitalmedia.com" target="_blank">
-              <Button variant="link">Contact</Button>
-            </Link>
+    <header className="sticky top-0 z-40 border-b border-foreground/10 bg-stone/85 backdrop-blur-md">
+      <div className="container mx-auto">
+        <div className="flex items-center gap-4 py-3">
+          <Link href="/" className="flex items-center gap-3 shrink-0 group">
+            <Image
+              src="/lawh-logo.png"
+              height={40}
+              width={40}
+              alt=""
+              className="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+            <span className="font-display text-lg sm:text-xl text-olive leading-tight tracking-tight">
+              Cordoba Digital Media
+            </span>
+          </Link>
+          <nav className="hidden md:flex grow justify-end items-center gap-1">
+            {navLinks.map((link) =>
+              link.external ? (
+                <Link key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
+                  <Button variant="clay" size="sm">
+                    {link.label}
+                  </Button>
+                </Link>
+              ) : (
+                <Link key={link.href} href={link.href}>
+                  <Button variant="ghost" size="sm" className="text-olive">
+                    {link.label}
+                  </Button>
+                </Link>
+              )
+            )}
           </nav>
           <div className="grow flex justify-end md:hidden">
             <MobileMenu />
           </div>
         </div>
       </div>
-    </section>
+    </header>
   );
 }
