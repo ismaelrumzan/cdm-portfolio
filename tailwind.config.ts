@@ -13,12 +13,16 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "1.25rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "1200px",
       },
     },
     extend: {
+      fontFamily: {
+        display: ["var(--font-fraunces)", "Georgia", "serif"],
+        body: ["var(--font-figtree)", "system-ui", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -53,6 +57,14 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        clay: {
+          DEFAULT: "hsl(var(--clay) / <alpha-value>)",
+          foreground: "hsl(var(--clay-foreground) / <alpha-value>)",
+        },
+        stone: "hsl(var(--stone) / <alpha-value>)",
+        olive: "hsl(var(--olive) / <alpha-value>)",
+        sage: "hsl(var(--sage) / <alpha-value>)",
+        moss: "hsl(var(--moss) / <alpha-value>)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -68,10 +80,20 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(1.25rem)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-up": "fade-up 0.8s ease-out both",
+        "fade-in": "fade-in 1s ease-out both",
       },
     },
   },
