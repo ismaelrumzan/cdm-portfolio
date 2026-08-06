@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, FileDown } from "lucide-react";
 import { Footer } from "@/components/ui/footer";
 import { Header } from "@/components/ui/header";
-import { writingOverview, writingSections } from "@/lib/writing";
+import {
+  conferencesAndPublications,
+  publicationKindLabel,
+  writingOverview,
+  writingSections,
+} from "@/lib/writing";
 
 export const metadata: Metadata = {
   title: "Technical Writing",
@@ -17,6 +22,8 @@ export const metadata: Metadata = {
     "CDN",
     "MCP",
     "Vercel Sandbox",
+    "publications",
+    "conferences",
   ],
   alternates: {
     canonical: "/writing",
@@ -67,7 +74,17 @@ export default function WritingPage() {
               className="text-base sm:text-lg text-foreground/80 max-w-2xl leading-relaxed animate-fade-up"
               style={{ animationDelay: "200ms" }}
             >
-              {writingOverview}
+              Technical writing for documentation and guides written for the
+              Vercel platform with content planning for larger pieces using the
+              Diátaxis framework, in collaboration with engineering and product
+              teams.{" "}
+              <Link
+                href="#publications"
+                className="text-olive underline underline-offset-4 decoration-sage/60 hover:text-clay hover:decoration-clay transition-colors"
+              >
+                Community contribution
+              </Link>{" "}
+              with papers and conference presentations.
             </p>
           </div>
         </section>
@@ -130,6 +147,67 @@ export default function WritingPage() {
               </ul>
             </section>
           ))}
+
+          <section
+            id="publications"
+            className="animate-fade-up"
+            style={{ animationDelay: "240ms" }}
+          >
+            <div className="mb-6 sm:mb-8 max-w-2xl">
+              <h2 className="font-display text-2xl sm:text-3xl text-olive mb-2">
+                Conferences &amp; Publications
+              </h2>
+              <p className="text-foreground/75 leading-relaxed">
+                Selected publications, presentations, and courses across
+                educational technology and learning design.
+              </p>
+            </div>
+            <ul className="divide-y divide-foreground/10 border-y border-foreground/10">
+              {conferencesAndPublications.map((entry) => {
+                const meta = `${publicationKindLabel(entry.kind)} · ${entry.year}`;
+                const body = (
+                  <>
+                    <div className="min-w-0">
+                      <p className="text-xs uppercase tracking-[0.16em] text-sage mb-1.5">
+                        {meta}
+                      </p>
+                      <span className="font-medium text-olive group-hover:text-clay transition-colors">
+                        {entry.title}
+                      </span>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {entry.venue}
+                      </p>
+                    </div>
+                    {entry.href ? (
+                      <FileDown
+                        className="h-5 w-5 shrink-0 text-sage mt-0.5 transition-transform group-hover:translate-y-0.5"
+                        aria-hidden
+                      />
+                    ) : null}
+                  </>
+                );
+
+                return (
+                  <li key={`${entry.year}-${entry.title}`}>
+                    {entry.href ? (
+                      <Link
+                        href={entry.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-start justify-between gap-4 py-4 sm:py-5 transition-colors hover:bg-sage/10 -mx-2 px-2 sm:-mx-3 sm:px-3 rounded-sm"
+                      >
+                        {body}
+                      </Link>
+                    ) : (
+                      <div className="flex items-start justify-between gap-4 py-4 sm:py-5">
+                        {body}
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
         </div>
       </main>
       <Footer />

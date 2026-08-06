@@ -16,24 +16,40 @@ export function Footer() {
               Based in Edmonton, Alberta, Canada
             </p>
           </div>
-          <div className="flex items-center gap-3">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-              Contact
-            </h2>
-            <Link
-              href="mailto:ismael@cordobadigitalmedia.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="outline"
-                size="icon"
-                aria-label="Email Cordoba Digital Media"
-                className="text-olive border-foreground/20"
+          <div className="flex flex-col items-start sm:items-end gap-4">
+            <nav className="flex items-center gap-5 text-sm">
+              <Link
+                href="/writing"
+                className="text-olive hover:text-clay transition-colors"
               >
-                <Mail size={18} />
-              </Button>
-            </Link>
+                Writing
+              </Link>
+              <Link
+                href="/#projects"
+                className="text-olive hover:text-clay transition-colors"
+              >
+                Projects
+              </Link>
+            </nav>
+            <div className="flex items-center gap-3">
+              <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                Contact
+              </h2>
+              <Link
+                href="mailto:ismael@cordobadigitalmedia.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  variant="outline"
+                  size="icon"
+                  aria-label="Email Cordoba Digital Media"
+                  className="text-olive border-foreground/20"
+                >
+                  <Mail size={18} />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
